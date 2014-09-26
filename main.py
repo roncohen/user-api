@@ -13,26 +13,8 @@ opbeat = Opbeat(
     secret_token = '0a80dbc2d13fe4347e63411bb62839408249b1de'
 )
 
-
-activity_template = """
-{{app['name']}}: <{{html_url}}|{{title}}>\n{{summary}}
-"""
-
-
-DEFAULT_COLOR = "#808080"
-COLORS = {
-    "errorgroup": {"creat§ed": "bad"},
-    "release": {"created": "good"},
-}
-
-
-def get_color(subject_type, action):
-    return COLORS.get(subject_type, {}).get(action, DEFAULT_COLOR)
-
-SLACK_URL = os.environ.get('SLACK_URL')
-if not SLACK_URL:
-    print("Missing environment variable SLACK_URL")
-    exit(1)
+class PrettySeriousError(Exception):
+    pass
 
 
 def send(data):
@@ -67,15 +49,8 @@ def send(data):
 
 @app.post('/new-activity')
 def new_activity():
-    data = request.json
-    send(data)
+    raise PrettySeriousError()
     return "ok"
-
-
-@app.get('/setup')
-def setup():
-    url = request.url.replace("/setup", "/new-activity")
-    return template("This is your hook url, copy it:<h3>{{url}}</h3>", url=url)
 
 if __name__ == '__main__':
     app.run()
