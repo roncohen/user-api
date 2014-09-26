@@ -18,6 +18,8 @@ class PrettySeriousError(Exception):
     pass
 
 
+
+
 def send(data):
     rendered_activity = template(activity_template, **data)
     post_data = {
