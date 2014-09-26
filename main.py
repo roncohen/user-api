@@ -9,7 +9,7 @@ from opbeat.contrib.flask import Opbeat
 opbeat = Opbeat(
     app,
     organization_id = '8de432ce3f5742a29641d5f7430b9621',
-    app_id = '8b0260935e',
+    app_id = '937e79a890',
     secret_token = '0a80dbc2d13fe4347e63411bb62839408249b1de'
 )
 
