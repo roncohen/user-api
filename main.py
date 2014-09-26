@@ -13,6 +13,7 @@ opbeat = Opbeat(
     secret_token = '0a80dbc2d13fe4347e63411bb62839408249b1de'
 )
 
+
 class PrettySeriousError(Exception):
     pass
 
@@ -45,7 +46,6 @@ def send(data):
         print(resp.status_code, resp.text)
     else:
         print("Sent activity to slack")
-
 
 @app.route('/new-activity')
 def new_activity():
