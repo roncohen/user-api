@@ -13,12 +13,11 @@ opbeat = Opbeat(
     secret_token = '0a80dbc2d13fe4347e63411bb62839408249b1de'
 )
 
-
 class PrettySeriousError(Exception):
     pass
 
-
-
+class ThisClassDoesNothing(object):
+    pass
 
 def send(data):
     rendered_activity = template(activity_template, **data)
