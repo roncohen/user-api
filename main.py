@@ -47,9 +47,9 @@ def send(data):
         print("Sent activity to slack")
 
 
-@app.post('/new-activity')
+@app.route('/new-activity')
 def new_activity():
-    raise PrettySeriousError()
+    raise PrettySeriousError("Show them the app, Ron")
     return "ok"
 
 if __name__ == '__main__':
